@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import TabScreen from './src/ecommerceSample/navigations/TabScreen';
@@ -10,11 +10,15 @@ import CartStackScreen from './src/ecommerceSample/navigations/stack/CartStackSc
 import SearchStackScreen from './src/ecommerceSample/navigations/stack/SearchStackScreen';
 import ProfileStackScreen from './src/ecommerceSample/navigations/stack/ProfileStackScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { CartProvider } from './src/ecommerceSample/store/CartContext';
+import cartContext, { CartProvider } from './src/ecommerceSample/store/CartContext';
 
 
 const Tab = createBottomTabNavigator();
 const App = () => {
+
+  const {cart} = useContext(cartContext);
+
+  var cartLength = cart.length == undefined ? 0 : cart.length
 
   return (
 
@@ -42,7 +46,7 @@ const App = () => {
               tabBarIcon: ({ color }) => (
                 <MaterialCommunityIcons name="cart" color={color} size={26} />
               ),
-              tabBarBadge: 3
+              tabBarBadge: cartLength
             }}
           />
           <Tab.Screen name="Favorites" component={FavoritesStackScreen}
