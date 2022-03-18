@@ -1,10 +1,12 @@
 import React from 'react';
 import { createContext, useState } from 'react';
+import { getStoreCart } from '../helper/StorageHelper';
 
 
 const cartContext = createContext(null);
 
 export const CartProvider = ({ children }) => {
+
 
     const [cart, setCart] = useState([])
 

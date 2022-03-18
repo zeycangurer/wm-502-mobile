@@ -13,7 +13,7 @@ const SearchStackScreen = ({navigation}) => {
         <SearchStack.Navigator screenOptions={{
             headerShown: false
           }}>
-            <SearchStack.Screen name="Search" component={SearchScreen} />
+            <SearchStack.Screen name="SearchScreen" component={SearchScreen} />
             <SearchStack.Screen name="ProductDetail" component={ProductDetailScreen} />
 
           </SearchStack.Navigator>
